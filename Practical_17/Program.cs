@@ -12,6 +12,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Register the services for dependency injection
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddHttpClient("StudentApiClient", client =>
+{
+    var baseUrl = builder.Configuration["ApiSettings:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl);
+});
+
 
 var app = builder.Build();
 

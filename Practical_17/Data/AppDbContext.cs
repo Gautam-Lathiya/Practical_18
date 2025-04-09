@@ -2,6 +2,7 @@
 using Practical_17.Models;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using Practical_17.ViewModels;
 
 namespace Practical_17.Data
 {
@@ -22,6 +23,7 @@ namespace Practical_17.Data
                 new Role { Id = 2, RoleName = "User" }
             );
         }
+        public DbSet<Practical_17.ViewModels.StudentViewModel> StudentViewModel { get; set; } = default!;
     }
 
 }
